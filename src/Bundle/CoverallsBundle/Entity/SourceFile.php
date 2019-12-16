@@ -60,7 +60,7 @@ class SourceFile extends Coveralls
      */
     public function __construct($path, $name, $eol = "\n")
     {
-        $this->path = $path;
+        $this->path = str_replace('\\', '/', $path);
         $this->name = $name;
         $this->source = trim(file_get_contents($path));
 
