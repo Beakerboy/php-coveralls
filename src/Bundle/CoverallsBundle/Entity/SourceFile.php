@@ -60,7 +60,7 @@ class SourceFile extends Coveralls
      */
     public function __construct($path, $name, $eol = "\n")
     {
-        $this->path = str_replace('\\', '/', $path);
+        $this->path = $path;
         $this->name = $name;
         $this->source = trim(file_get_contents($path));
 
@@ -77,7 +77,7 @@ class SourceFile extends Coveralls
     public function toArray()
     {
         return [
-            'name' => $this->name,
+            'name' => str_replace('\\', '/', $this->name);
             'source' => $this->source,
             'coverage' => $this->coverage,
         ];
