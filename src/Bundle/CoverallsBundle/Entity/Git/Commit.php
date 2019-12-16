@@ -62,8 +62,12 @@ class Commit extends Coveralls
      */
     public function toArray()
     {
+        $id = $this->id;
+        if ($id[0] == '\'') {
+            $id = substr($id, 1);
+        }
         return [
-            'id' => substr($this->id, 1),
+            'id' => $id,
             'author_name' => $this->authorName,
             'author_email' => $this->authorEmail,
             'committer_name' => $this->committerName,
