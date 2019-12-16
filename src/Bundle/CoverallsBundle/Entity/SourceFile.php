@@ -77,7 +77,7 @@ class SourceFile extends Coveralls
     public function toArray()
     {
         return [
-            'name' => str_replace('\\', '/', $this->name);
+            'name' => str_replace('\\', '/', $this->name),
             'source' => $this->source,
             'coverage' => $this->coverage,
         ];
